@@ -1,4 +1,14 @@
 ;; land of lisp, chapter 10 
+;;
+;; start from lisp shell
+;;
+;; loading:
+;; (load "evo.lisp")
+;; start:
+;; (evolution)
+;; quit:
+;; quit
+;; (quit)
 
 (defparameter *width* 100)
 (defparameter *height* 30)
@@ -68,6 +78,7 @@
       (let ((animal-nu (copy-structure animal))
             (genes     (copy-list (animal-genes animal)))
             (mutation  (random 8)))
+        (setf (nth mutation genes) (max 1 (+ (nth mutation genes) (random 3) -1)))
         (setf (animal-genes animal-nu) genes)
         (push animal-nu *animals*)))))
 
@@ -106,7 +117,7 @@
     (cond ((equal str "quit") ())
           (t (let ((x (parse-integer str :junk-allowed t)))
                (if x
-                 (loop foor i
+                 (loop for i
                        below x
                        do (update-world)
                        if (zerop (mod i 1000))
