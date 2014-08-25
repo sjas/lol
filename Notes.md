@@ -211,3 +211,35 @@
     (loop for i below 4 when (oddp i) sum i) ;; 4
 (loop for i from 0 sum i) ;; error infinity
     (loop for x from 1 to 2 for y below 5 collect (* x y)) ;; (0 2)
+
+### format
+
+    (format t "hello world") ;; t = console output
+    (format nil "hello world") ;; nil = just create string
+    (format stream "hello world") ;; stream = output stream output
+    ;; control sequences:
+    ;; ~$ monetary floating point valuee
+    ;; ~a absolute (no "")
+    ;; ~s string (with "")
+    ;; ~10a 10-char-wide, leftbound
+    ;; ~12@a 12-char-wide, rightbound
+    ;; ~5,3a 5-char-wide, leftbound, extend by size of 3
+    ;; ~,,4a padding of 4 spaces to the right
+    ;; ~,,5,'?a padding of 5 '?' to the right
+    ;; ~,,2,':@a padding of 2 ':' to the left
+    ;; ~x base-16 / hex
+    ;; ~b base-2 / binary
+    ;; ~d base-10 / decimal
+    ;; ~:d base-10, with ',' each 1000er group
+    ;; ~f floating-point
+    ;; ~3f numbers plus comma altogether = 3
+    ;; ~,4f four decimals
+    ;; ~,,3f scale value by 10^3
+    ;; ~% hard newline
+    ;; ~& soft newline, if needed
+    ;; ~t for creating tables
+    ;; ~< and ~> make spaces evenly distributed in between
+    ;; can be used for centering, too
+    ;; repeat for each column in conjunction with ':@' for having all cells centered
+    ;; ~{ and ~} make a string repeat for the amount of elements in a passed list
+    ;;

@@ -252,10 +252,31 @@ fresh-line
 
 loop's
     see other Notes.md
-
 do
     take an arbitrary expression an execute inside a loop
 collect
     return results of a loop as a list
 mod
     modulo operation
+incf
+    add account to variable
+remhash
+    remove hash
+copy-structure
+    create shallow copy of a sequence (no deep copying, just linking)
+copy-list
+    ...
+
+### chapter 11
+
+format
+    output formatting
+    see Notes.md
+terpri
+    hard newline
+fresh-line
+    newline, only if cursor aint at first position in line
+
+### chapter 12
+
+
