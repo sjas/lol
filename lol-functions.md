@@ -277,6 +277,21 @@ terpri
 fresh-line
     newline, only if cursor aint at first position in line
 
-### chapter 12
+### chapter 12 ... streams, reread
 
+### chapter 13
 
+error
+    error messaging
+define-condition
+    define condition to be used with error
+handler-case
+    handle error conditions
+unwind-protect
+    execute code even tough an error condition happened
+
+todo here
+
+### chapter 14
+
+more todo
