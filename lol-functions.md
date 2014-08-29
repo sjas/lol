@@ -279,6 +279,8 @@ fresh-line
 
 ### chapter 12 ... streams, reread
 
+todo
+
 ### chapter 13
 
 error
@@ -294,4 +296,10 @@ todo here
 
 ### chapter 14
 
-more todo
+run-of-the-mill discussion about functional programming. 
+besides a good explanation of side effects, just a bunch of incorrect ramblings.
+or is functional just a synonym for declarative nowadays?
+
+### chapter 15
+
+
