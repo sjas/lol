@@ -3,4 +3,4 @@ lol
 
 Land of Lisp.
 
-All code that comes along while reading the book goes in here.
+All code and all notes that come along while reading the book go in here.
