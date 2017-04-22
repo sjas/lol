@@ -1,305 +1,153 @@
-# FUNCTIONS USED IN LAND OF LISP
+# FUNCTIONS USED IN "LAND OF LISP"
 
-## chapter 1
-
+## chapter 1 - nothing of value
 ---
 
-## chapter 2
+## chapter 2 - meta keywords
+defparameter	 		= set mutable global var
+defvar 			 		= set immutable global var
+defun			 		= set global function
+ash                     = arithmetic shift integer by count left, right if negative count is given
+1+				 		= increment by one
+1- 				 		= decrement by one
+let				 		= set mutable local var
+flet			 		= set local function
+labels			 		= set local function, recursion possible
 
-defparameter
-    set mutable global var
-defvar 
-    set immutable global var
-defun
-    set global function
-ash 
-   arithmetic shift integer by count left, right if negative count is given 
-1+
-    increment by one
-1- 
-    decrement by one
-let
-    set mutable local var
-flet
-    set local function
-labels
-    set local function, recursion possible
+## chapter 3 - printing lists
+eq			     		= check two symbols for equality
+expt			 		= calculate exponent
+/			     		= division, returns rational number with ints, returns fraction with floats
+princ			 		= print stuff, human-readable
+cons			 		= glue two objects together
+car			     		= get head of list
+cdr			     		= get tail of list, to repeat add more d's, if car cdr are combined, read from right to left
+list			 		= create a list
 
-## chapter 3
+## chapter 4 - control structures and equality
+if			     		= usual if branch
+oddp			 		= T if odd number as argument given
+progn 			 		= chain several evaluations together, only the last result will be returned
+when			 		= if plus implicit progn, will only evaluate true progn branch
+unless			 		= if not plus implicit progn, will only evaluate false progn branch
+cond			 		= can work with several conditionals, will evaluate all branches
+case			 		= match parameter with symbol, will break with strings
+and			     		= boolean stuff
+or			     		= boolean stuff
+member			 		= contains function for lists
+null			 		= check for nil
+equal			 		= check everything else, not being a symbol
+eql			     		= symbols, numbers, characters
+equalp			 		= compare strings with different caps, compare ints and floats, numbers
+string-equal	 		= strings
+char-equal		 		= chars
 
-eq
-    check two symbols for equality
-expt
-    calculate exponent
-/
-    division, returns rational number with ints
-    returns fraction with floats
-princ
-    print stuff, human-readable
-cons
-    glue two objects together
-car
-    get head of list
-cdr
-    get tail of list
-    to repeat, add more d's
-    if car and cdr are combined, read from right to left
-list
-    create a list
+## chapter 5 - working with lists
+assoc			 		= return car and cdr consed from the matching car from an associated list / alist			 		 = only returns first match
+apply			 		= apply a function to a list of arguments
+mapcar			 		= apply a function to every element of a list
+append			 		= joins lists into a single big list
+find			 		= search a list for a item and return it if present
+push			 		= add element to front of list
 
-## chapter 4
+## chapter 6 - printing
+print			 		= to console
+prin1			 		= print to console, without prepending a newline
+read			 		= from console, needs quotes for strings
+read-line			 	= get all input until enter as a string
+eval			 		= evaluate string/whatever as code
+loop			 		= loop forever
+read-from-string 		= get syntax expression
+quote			 		= '
 
-if
-    usual if branch
-oddp
-    T if odd number as argument given
-progn 
-    chain several evaluations together
-    only the last result will be returned
-when
-    if plus implicit progn
-    will only evaluate true progn branch
-unless
-    if not plus implicit progn
-    will only evaluate false progn branch
-cond
-    can work with several conditionals
-    will evaluate all branches
-case
-    match parameter with symbol
-    will break with strings
-and
-    boolean stuff
-or
-    boolean stuff
-member
-    contains function for lists
-null
-    check for nil
-equal
-    check everything else, not being a symbol
-eql
-    symbols, numbers, characters
-equalp
-    compare strings with different caps
-    compare ints and floats
-=
-    numbers
-string-equal
-    strings
-char-equal
-    chars
+## chapter 6.5 - further application
+lambda			 		= define anonymous functions, it's actually not a function but a macro
+. 			     		= dot operator for creating dotted lists, if needed
+alphanumericp	 		= check if char in string is alphanumeric
+complement		 		= return complement function of a given function
+mapc			 		= same as mapcar, more efficient, doesnt return result list
+with-open-file	 		= define 'stream variable', open file handler for writing files
+ext:shell		 		= call shell commands
+funcall			 		= TODO
+maplist			 		= apply a function to a remainder of a list (think mapcar plus application on all following elements)
 
-## chapter 5
+## chapter 8 - looping
+load			 		= import lisp code from another file
+loop repeat n	 		= loop n times
+loop for n from a to b	= loop for b-a times, making the index available
+collect			 		= used in loop statements, to tell which elements shall be put into a list, takes function arguments, too
+loop for i below n	 	= loop from 0 to n-1
+mapcan			 		= all lists generated by map are appended into one big list
+intersection	 		= tells which elements are shared by two lists, the equals function to be used can be specified
+set-difference	 		= returns all items that are present in the first list but not the second
+remove-duplicates		= removes duplicates from a list
 
-assoc
-    return car and cdr consed from the matching car from an associated list / alist
-    only returns first match
-apply
-    apply a function to a list of arguments
-mapcar
-    apply a function to every element of a list
-append
-    joins lists into a single big list
-find
-    search a list for a item and return it if present
-push
-    add element to front of list
+## chapter 9 - data structures and
+make-array		 		= create an array
+aref			 		= reference an array by index
+setf			 		= prepend to getters for setting variables
+make-hash-table	 		= create a hashtable
+gethash			 		= get item for given key
+nth			     		= get nth element of a list
+round			 		= round off a number
+values			 		= define return values (can be several at once!!)
+multiple-value-bind	 	= use several value-defined values at once, instead of just the first one
+time			 		= time a function call, just like in bash
+dotimes			 		= repeat for the given amount of times
+defstruct		 		= create object
+length			 		= return length of list/string/array
+list-length		 		= return length of string
+find-if			 		= finds first value to satisfy a predicate
+count			 		= how often an object exists in a sequence
+position		 		= return first position of an object occurrence
+some			 		= T if an object satisfies predicate in a given sequence
+every			 		= T if every object in a given sequence fulfills the predicate
+reduce			 		= 'foldleft' function
+map			     		= apply function to every element of ssequence, return result as given type
+subseq			 		= return subsequence between two given indexes, including start excluding the end
+sort			 		= sequence by function
+arrayp			 		= T if array
+characterp		 		= T if char
+consp			 		= T if cons
+functionp		 		= T if function
+hash-table-p	 		= T if hash-table
+listp			 		= T if list
+stringp			 		= T if string
+symbolp			 		= T if symbol
+defmethod		 		= declare generic function acception different types (type dispatching)
+truncate		 		= return result of integer division, and remainder
+type-of			 		= return type
+decf			 		= substract account from variable
+fresh-line		 		= print newline
 
-## chapter 6
+### chapter 10 - loops in depth
+loop's		     		= see other Notes.md
+do			     		= take an arbitrary expression an execute inside a loop
+collect			 		= return results of a loop as a list
+mod			     		= modulo operation
+incf			 		= add account to variable
+remhash			 		= remove hash
+copy-structure	 		= create shallow copy of a sequence (no deep copying, just linking)
+copy-list		 		= ...
 
-print
-    to console
-prin1
-    print to console, without prepending a newline
-read
-    from console, needs quotes for strings
-read-line
-    get all till enter as a string
-eval
-    evaluate string/whatever as code
-loop
-    loop forever
-read-from-string
-    get syntax expression
-quote
-    '
+### chapter 11 - format in depth
+format			 		= output formatting, see Notes.md
+terpri			 		= hard newline
+fresh-line		 		= newline, only if cursor aint at first position in line
 
-## chapter 6.5
+### chapter 12 - streams
+TODO
 
-lambda
-    define anonymous functions
-    it's actually not a function, but a macro
+### chapter 13 - error handling
+error			 		= error messaging
+define-condition 		= define condition to be used with error
+handler-case	 		= handle error conditions
+unwind-protect	 		= execute code even tough an error condition happened
+TODO
 
-. 
-    dot operator for creating dotted lists, if needed
-
-alphanumericp
-    check if char in string is alphanumeric
-complement
-    return complement function of a given function
-mapc
-    same as mapcar, more efficient, doesnt return result list
-with-open-file
-    define 'stream variable'
-    open file handler for writing files
-ext:shell
-    call shell commands
-funcall
-    todo
-maplist
-    apply a function to a remainder of a list (think mapcar plus application on all following elements)
-
-## chapter 8
-
-load
-    import lisp code from another file
-loop repeat n
-    loop n times
-loop for n from a to b
-    loop for b-a times, making the index available
-collect
-    used in loop statements, to tell which elements shall be put into a list
-    takes function arguments, too
-loop for i below n
-    loop from 0 to n-1
-mapcan
-    all lists generated by map are appended into one big list
-intersection
-    tells which elements are shared by two lists
-    the equals function to be used can be specified
-set-difference
-    returns all items that are present in the first list but not the second
-remove-duplicates
-    removes duplicates from a list
-
-## chapter 9
-
-make-array
-    create an array
-aref
-    reference an array by index
-setf
-    prepend to getters for setting variables
-make-hash-table
-    create a hashtable
-gethash
-    get item for given key
-nth
-    get nth element of a list
-round
-    round off a number
-values
-    define return values (can be several at once!!)
-multiple-value-bind
-    use several value-defined values at once, instead of just the first one
-time
-    time a function call, just like in bash
-dotimes
-    repeat for the given amount of times
-defstruct
-    create object
-length
-    return length of list/string/array
-list-length
-    return length of string
-find-if
-    finds first value to satisfy a predicate
-count
-    how often an object exists in a sequence
-position
-    return first position of an object occurrence
-some
-    T if an object satisfies predicate in a given sequence
-every
-    T if every object in a given sequence fulfills the predicate
-reduce
-    = foldleft
-map
-    apply function to every element of ssequence, return result as given type
-subseq
-    return subsequence between two given indexes, including start excluding the end
-sort
-    sequence by function
-arrayp
-    T if array
-characterp
-    T if char
-consp
-    T if cons
-functionp
-    T if function
-hash-table-p
-    T if hash-table
-listp
-    T if list
-stringp
-    T if string
-symbolp
-    T if symbol
-defmethod
-    declare generic function acception different types (type dispatching)
-truncate
-    return result of integer division, and remainder
-type-of
-    return type
-decf
-    substract account from variable
-fresh-line
-    print newline
-
-### chapter 10
-
-loop's
-    see other Notes.md
-do
-    take an arbitrary expression an execute inside a loop
-collect
-    return results of a loop as a list
-mod
-    modulo operation
-incf
-    add account to variable
-remhash
-    remove hash
-copy-structure
-    create shallow copy of a sequence (no deep copying, just linking)
-copy-list
-    ...
-
-### chapter 11
-
-format
-    output formatting
-    see Notes.md
-terpri
-    hard newline
-fresh-line
-    newline, only if cursor aint at first position in line
-
-### chapter 12 ... streams, reread
-
-todo
-
-### chapter 13
-
-error
-    error messaging
-define-condition
-    define condition to be used with error
-handler-case
-    handle error conditions
-unwind-protect
-    execute code even tough an error condition happened
-
-todo here
-
-### chapter 14
-
-run-of-the-mill discussion about functional programming. 
+### chapter 14 - about functional programming
+run-of-the-mill discussion about functional programming.
 besides a good explanation of side effects, just a bunch of incorrect ramblings.
 or is functional just a synonym for declarative nowadays?
 
-### chapter 15
-
-
+### chapter 15 - TODO
